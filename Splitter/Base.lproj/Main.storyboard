@@ -17,25 +17,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ij-aS-W09">
-                                <rect key="frame" x="138" y="433" width="138" height="30"/>
-                                <state key="normal" title="Scan EDEKA receipt"/>
+                                <rect key="frame" x="140.5" y="413" width="133" height="30"/>
+                                <state key="normal" title="Scan using Camera"/>
                                 <connections>
                                     <action selector="scanReceipt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L6s-DQ-6uw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glY-Tf-u91">
+                                <rect key="frame" x="119.5" y="453" width="175" height="30"/>
+                                <state key="normal" title="Select Photo from Library"/>
+                                <connections>
+                                    <action selector="scanFromPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HMr-RH-zWT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7Ij-aS-W09" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MFg-hn-H7u"/>
-                            <constraint firstItem="7Ij-aS-W09" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xCQ-fA-aXc"/>
+                            <constraint firstItem="7Ij-aS-W09" firstAttribute="centerX" secondItem="glY-Tf-u91" secondAttribute="centerX" id="Xeh-yo-30k"/>
+                            <constraint firstItem="7Ij-aS-W09" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-20" id="b16-dL-3fS"/>
+                            <constraint firstItem="glY-Tf-u91" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="20" id="d1I-C9-UZL"/>
+                            <constraint firstItem="7Ij-aS-W09" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eEA-p8-3VF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="NaQ-Ny-WoK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="108"/>
+            <point key="canvasLocation" x="202.89855072463769" y="107.8125"/>
         </scene>
         <!--Receipt-->
         <scene sceneID="1im-Bu-NLG">

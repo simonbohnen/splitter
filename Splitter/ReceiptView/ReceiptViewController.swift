@@ -37,7 +37,7 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
         if index == prices.count {
             //Sum row
             cell.position.text = "Summe"
-            cell.price.text = "\(sum ?? 0)€"
+            cell.price.text = "\(sum ?? 666)€"
         } else {
             cell.position.text = "Position \(index + 1)"
             cell.price.text = "\(prices[index])€"
@@ -77,7 +77,7 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
         
-        let totalSumX = totalSumObservation.boundingBox.midX
+        // let totalSumX = totalSumObservation.boundingBox.midX
         // TODO test if is convertible to number
         
         let sumString = totalSumObservation.bestString().replacingOccurrences(of: " ", with: "")
@@ -117,9 +117,11 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
         
-        print("Diff: \(self.prices.reduce(0, +) - self.sum!)")
-        if self.prices.reduce(0, +).isCloseTo(self.sum!) {
+        print("Diff: \(self.prices.reduce(0, +) - (self.sum ?? 0))")
+        if self.prices.reduce(0, +).isCloseTo(self.sum ?? 0) {
             print("Fucking party hard!")
+        } else {
+            print("F")
         }
     }
     

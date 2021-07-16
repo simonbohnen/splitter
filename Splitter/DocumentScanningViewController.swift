@@ -1,6 +1,7 @@
 import UIKit
 import VisionKit
 import Vision
+import PhotosUI
 
 class DocumentScanningViewController: UIViewController {
     var receiptViewController: ReceiptViewController?
@@ -20,6 +21,14 @@ class DocumentScanningViewController: UIViewController {
         // We want an accurate analysis
         textRecognitionRequest.recognitionLevel = .accurate
         textRecognitionRequest.usesLanguageCorrection = true
+    }
+    @IBAction func scanFromPhoto(_ sender: Any) {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 1
+        config.filter = .any(of: [.images, .livePhotos])
+        let pickerController = PHPickerViewController(configuration: config)
+        pickerController.delegate = self
+        present(pickerController, animated: true)
     }
     
     @IBAction func scanReceipt(_ sender: UIControl) {
@@ -56,6 +65,34 @@ extension DocumentScanningViewController: VNDocumentCameraViewControllerDelegate
                 DispatchQueue.main.async {
                     if let resultsVC = self.receiptViewController {
                         self.navigationController!.pushViewController(resultsVC, animated: true)
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension DocumentScanningViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        self.receiptViewController = storyboard?.instantiateViewController(withIdentifier: "receiptVC") as? ReceiptViewController
+        
+        picker.dismiss(animated: true) {
+            DispatchQueue.global(qos: .userInitiated).async {
+                let result = results.first!
+                let itemProvider = result.itemProvider
+                _ = itemProvider.loadObject(ofClass: UIImage.self) { [weak self] photo, error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    if let uiImage = photo as? UIImage {
+                        self?.processImage(image: uiImage)
+                        
+                        DispatchQueue.main.async {
+                            if let resultsVC = self?.receiptViewController {
+                                self?.navigationController!.pushViewController(resultsVC, animated: true)
+                            }
+                        }
                     }
                 }
             }
