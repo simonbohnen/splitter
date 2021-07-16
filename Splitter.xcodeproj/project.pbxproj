@@ -19,6 +19,7 @@
 		F44FD5762688C985008F77DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44FD5742688C985008F77DA /* LaunchScreen.storyboard */; };
 		F44FD5812688C985008F77DA /* SplitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FD5802688C985008F77DA /* SplitterTests.swift */; };
 		F44FD58C2688C985008F77DA /* SplitterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FD58B2688C985008F77DA /* SplitterUITests.swift */; };
+		F4A7E75C26A1B95900DC2F96 /* ClassifiedObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A7E75B26A1B95900DC2F96 /* ClassifiedObservation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		F44FD5872688C985008F77DA /* SplitterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44FD58B2688C985008F77DA /* SplitterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitterUITests.swift; sourceTree = "<group>"; };
 		F44FD58D2688C985008F77DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4A7E75B26A1B95900DC2F96 /* ClassifiedObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedObservation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				F43C294026A02B7C00C1AC4B /* Receipt.swift */,
+				F4A7E75B26A1B95900DC2F96 /* ClassifiedObservation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				F43C293E26A02B0700C1AC4B /* ReceiptViewController.swift in Sources */,
 				F43C2939269F466100C1AC4B /* DocumentScanningViewController.swift in Sources */,
 				F43C294426A05A5A00C1AC4B /* PositionCell.swift in Sources */,
+				F4A7E75C26A1B95900DC2F96 /* ClassifiedObservation.swift in Sources */,
 				F44FD56C2688C982008F77DA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

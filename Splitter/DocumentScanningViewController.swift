@@ -23,11 +23,10 @@ class DocumentScanningViewController: UIViewController {
         textRecognitionRequest.usesLanguageCorrection = true
     }
     @IBAction func scanFromPhoto(_ sender: Any) {
-        var config = PHPickerConfiguration()
-        config.selectionLimit = 1
-        config.filter = .any(of: [.images, .livePhotos])
-        let pickerController = PHPickerViewController(configuration: config)
+        let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true)
     }
     
@@ -70,9 +69,27 @@ extension DocumentScanningViewController: VNDocumentCameraViewControllerDelegate
             }
         }
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.receiptViewController = storyboard?.instantiateViewController(withIdentifier: "receiptVC") as? ReceiptViewController
+        
+        picker.dismiss(animated: true) {
+            DispatchQueue.global(qos: .userInitiated).async {
+                if let image = info[.editedImage] as? UIImage {
+                    self.processImage(image: image)
+                    
+                    DispatchQueue.main.async {
+                        if let resultsVC = self.receiptViewController {
+                            self.navigationController!.pushViewController(resultsVC, animated: true)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-extension DocumentScanningViewController: PHPickerViewControllerDelegate {
+extension DocumentScanningViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         self.receiptViewController = storyboard?.instantiateViewController(withIdentifier: "receiptVC") as? ReceiptViewController
         
