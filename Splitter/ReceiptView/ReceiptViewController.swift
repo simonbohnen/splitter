@@ -22,7 +22,6 @@ class ReceiptViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         positionTableView.delegate = self
         positionTableView.dataSource = self
-        i
         sumLabel.text = String(format: "%.2f€", sum ?? 666.0)
     }
     
