@@ -123,6 +123,7 @@
                     </view>
                     <connections>
                         <outlet property="positionTableView" destination="Tah-nQ-gHh" id="D0c-ih-AUN"/>
+                        <outlet property="sumLabel" destination="U7V-Kj-qcF" id="snr-eF-AAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bB2-1Y-hzd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
